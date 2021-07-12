@@ -1,0 +1,28 @@
+:root {
+    --primary: #d6dddd;
+    --dark: #080808;
+    --light: #f7f7f7;
+}
+
+
+/* Footer */
+
+.foot {
+    margin-top: 2rem;
+    background: var(--primary);
+    text-align: center;
+    padding: 1rem;
+}
+
+.foot-text {
+    color: var(--dark);
+    text-align: center;
+    padding: 1rem;
+    font-size: 15px;
+}
+
+.social {
+    height: 50px;
+    width: 50px;
+    padding: 5px;
+}

@@ -1,0 +1,61 @@
+:root {
+    --primary: #d6dddd;
+    --dark: #080808;
+    --light: #f7f7f7;
+}
+
+
+/* Top Container */
+
+.top-container {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-areas: "top top" "top top";
+}
+
+
+/* top portion*/
+
+.top {
+    grid-area: top;
+    min-height: 100px;
+    background-image: url("../images/index.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+.top h1 {
+    font-size: 4rem;
+    margin-bottom: 0;
+    color: var(--light);
+}
+
+.top p {
+    font-size: 1.3rem;
+    margin-top: 0;
+    color: var(--light);
+}
+
+
+/* Media Queries */
+
+@media (max-width: 700px) {
+    .top-container {
+        grid-template-areas: "top top" "top top";
+    }
+}
+
+.top h1 {
+    font-size: 2.5rem;
+}
+
+@media (max-width: 500px) {
+    .top-container {
+        grid-template-areas: "top" "top" "top" "top";
+    }
+}
