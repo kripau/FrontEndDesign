@@ -7,22 +7,19 @@
 .blog_container {
     display: grid;
     grid-gap: 20px;
-    grid-template-areas: "blog_x link";
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas: "blog_x profile" "blog_x link";
 }
 
 .blog_x {
     grid-area: blog_x;
     min-height: 100px;
-    background-image: url("../images/blog1.jpg");
-    background-size: cover;
-    background-position: center;
-    padding: 3rem;
+    padding: 2rem 1rem;
     display: flex;
     flex-direction: column;
     align-items: start;
     background: var(--primary);
     text-align: justify;
-    padding: 1.5rem 2rem;
 }
 
 .blog_x h2 {
@@ -39,7 +36,7 @@
     padding: auto;
 }
 
-.blog_x p {
+.blog_x blockquote {
     font-size: 1.2rem;
     margin-bottom: 0;
     color: var(--dark);
@@ -48,30 +45,40 @@
 
 .link {
     grid-area: link;
-    min-height: 100px;
-    background-size: cover;
-    background-position: center;
-    padding: 3rem;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    align-items: start;
-    justify-content: center;
     background: var(--primary);
-    text-align: center;
-    padding: 1.5rem 2rem;
 }
 
+.profile {
+    grid-area: profile;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--primary);
+    text-align: justify;
+    padding: 1.5rem 2rem;
+    justify-content: centre;
+}
+
+.profile p {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+    color: var(--dark);
+    justify-content: space-between;
+}
 
 /* Media Queries */
 
 @media (max-width: 700px) {
     .blog_container {
-        grid-template-areas: "blog_x link";
+        grid-template-areas: "blog_x profile" "blog_x link";
     }
 }
 
 @media (max-width: 500px) {
     .blog_container {
-        grid-template-areas: "blog_x" "link";
+        grid-template-areas: "blog_x blog_x" "profile link";
     }
 }
