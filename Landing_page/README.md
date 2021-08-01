@@ -1,4 +1,4 @@
-# Assignment 2: Landing page
+# Multi-Section Landing Page
 
 ## Project Summary
 In this project, we have created an interactive multi-section landing page where DOM is automatically updated using Javascript. Following functionalities are implemented:
