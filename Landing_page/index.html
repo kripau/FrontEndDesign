@@ -1,74 +1,129 @@
-<!DOCTYPE >
+<!DOCTYPE>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Manipulating the DOM</title>
-  <!-- Load Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet">
-  <!-- Load Styles -->
-  <link href="css/styles.css" rel="stylesheet">
-</head>
-<body>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Manipulating the DOM</title>
+    <!-- Load Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet">
+    <!-- Load Styles -->
+    <link href="css/styles.css" rel="stylesheet">
+  </head>
+
+  <body>
 
 
-  <!-- HTML Follows BEM naming conventions
+    <!-- HTML Follows BEM naming conventions
   IDs are only used for sections to connect menu achors to sections -->
-  <header class="page__header">
-    <nav class="navbar__menu">
-      <!-- Navigation starts as empty UL that will be populated with JS -->
-      <ul id="navbar__list">  </ul>
-    </nav>
-  </header>
-  <main>
-    <header class="main__hero">
-      <h1 >Landing Page </h1>
+    <header class="page__header">
+      <nav class="navbar__menu">
+        <!-- Navigation starts as empty UL that will be populated with JS -->
+        <ul id="navbar__list"> </ul>
+      </nav>
     </header>
-    <!-- Each Section has an ID (used for the anchor) and
+    <main>
+      <header class="main__hero">
+        <h1>Landing Page </h1>
+      </header>
+      <!-- Each Section has an ID (used for the anchor) and
     a data attribute that will populate the li node.
     Adding more sections will automatically populate nav.
     The first section is set to active class by default -->
-    <section id="section1" data-nav="Healthy Diet" class="your-active-class">
-      <div class="landing__container">
-        <h2>Healthy Food</h2>
+      <section id="section1" data-nav="Healthy Diet" class="your-active-class">
+        <div class="landing__container">
+          <h2>Healthy Food</h2>
           <p>
-          A healthy diet is a diet that helps maintain or improve overall health. A healthy diet provides the body with essenti nutrition: fluid, macronutrients, micronutrients, and adequate food energy.[1][2] A healthy diet may contain fruits, vegetables, and whole grains, and may include little to no processed food or sweetened beverages. The requirements for a healthy diet can be met from a variety of plant-based and animal-based foods, although a non-plant source of vitamin B12 is needed for those following a vegan diet.[3] Various nutrition guides are published by medical and governmental institutions to educate individuals on what they should be eating to be healthy. Nutrition facts labels are also mandatory in some countries to allow consumers to choose between foods based on the components relevant to health.[4][5]
+            A healthy diet is a diet that helps maintain or improve overall health. A healthy diet provides the body
+            with essenti nutrition: fluid, macronutrients, micronutrients, and adequate food energy.[1][2] A healthy
+            diet may contain fruits, vegetables, and whole grains, and may include little to no processed food or
+            sweetened beverages. The requirements for a healthy diet can be met from a variety of plant-based and
+            animal-based foods, although a non-plant source of vitamin B12 is needed for those following a vegan
+            diet.[3] Various nutrition guides are published by medical and governmental institutions to educate
+            individuals on what they should be eating to be healthy. Nutrition facts labels are also mandatory in some
+            countries to allow consumers to choose between foods based on the components relevant to health.[4][5]
           </p>
-          <p>The Dietary Guidelines for Americans by the United States Department of Agriculture (USDA) recommends three healthy patterns of diet, summarized in the table below, for a 2000 kcal diet.[10][11][12].The guidelines emphasize both health and environmental sustainability and a flexible approach. The committee that drafted it wrote: "The major findings sustainable diets were that a diet higher in plant-based foods, such as vegetables, fruits, whole grains, legumes, nuts, and seeds, and lower in calories and animal-based foods is more health promoting and is associated with less environmental impact than is the current U.S. diet. This pattern of eating can be achieved through a variety of dietary patterns, including the “Healthy U.S.-style Pattern”, the “Healthy Vegetarian Pattern" and the "Healthy Mediterranean-style Pattern".[13] </p>
-      </div>
-    </section>
-    <section id="section2"  data-nav="Exercise">
-      <div class="landing__container">
-        <h2>Exercise</h2>
-        <p>Exercise is any bodily activity that enhances or maintains physical fitness and overall health and wellness.[1] It is performed for various reasons, to aid growth and improve strength, preventing aging, developing muscles and the cardiovascular system, honing athletic skills, weight loss or maintenance, improving health[2] and also for
-          enjoyment. Many individuals choose to exercise outdoors where they can congregate in groups, socialize, and enhance well-being.[3] In terms of health benefits, the amount of recommended exercise depends upon the goal, the type of exercise, and the age of the person. Even doing a small amount of exercise is healthier than doing none.[4]</p>
+          <p>The Dietary Guidelines for Americans by the United States Department of Agriculture (USDA) recommends three
+            healthy patterns of diet, summarized in the table below, for a 2000 kcal diet.[10][11][12].The guidelines
+            emphasize both health and environmental sustainability and a flexible approach. The committee that drafted
+            it wrote: "The major findings sustainable diets were that a diet higher in plant-based foods, such as
+            vegetables, fruits, whole grains, legumes, nuts, and seeds, and lower in calories and animal-based foods is
+            more health promoting and is associated with less environmental impact than is the current U.S. diet. This
+            pattern of eating can be achieved through a variety of dietary patterns, including the “Healthy U.S.-style
+            Pattern”, the “Healthy Vegetarian Pattern" and the "Healthy Mediterranean-style Pattern".[13] </p>
+        </div>
+      </section>
+      <section id="section2" data-nav="Exercise">
+        <div class="landing__container">
+          <h2>Exercise</h2>
+          <p>Exercise is any bodily activity that enhances or maintains physical fitness and overall health and
+            wellness.[1] It is performed for various reasons, to aid growth and improve strength, preventing aging,
+            developing muscles and the cardiovascular system, honing athletic skills, weight loss or maintenance,
+            improving health[2] and also for
+            enjoyment. Many individuals choose to exercise outdoors where they can congregate in groups, socialize, and
+            enhance well-being.[3] In terms of health benefits, the amount of recommended exercise depends upon the
+            goal, the type of exercise, and the age of the person. Even doing a small amount of exercise is healthier
+            than doing none.[4]</p>
 
-        <p>Physical exercise is important for maintaining physical fitness and can contribute to maintaining a healthy weight, regulating the digestive system, building and maintaining healthy bone density, muscle strength, and joint mobility, promoting physiological well-being, reducing surgical risks, and strengthening the immune system. Some studies indicate that exercise may increase life expectancy and the overall quality of life.[11] People who participate in moderate to high levels of physical exercise have a lower mortality rate compared to individuals who by comparison are not physically active.[12] Moderate levels of exercise have been correlated with preventing aging by reducing inflammatory potential.[13] The majority of the benefits from exercise are achieved with around 3500 metabolic equivalent (MET) minutes per week, with diminishing returns at higher levels of activity.[14] For example, climbing stairs 10 minutes, vacuuming 15 minutes, gardening 20 minutes, running 20 minutes, and walking or bicycling for transportation 25 minutes on a daily basis would together achieve about 3000 MET minutes a week.[14] A lack of physical activity causes approximately 6% of the burden of disease from coronary heart disease, 7% of type 2 diabetes, 10% of breast cancer and 10% of colon cancer worldwide</p>
-      </div>
-    </section>
-    <section id="section3" data-nav="Meditation">
-      <div class="landing__container">
-        <h2>Meditation</h2>
-        <p>Meditation is a practice where an individual uses a technique – such as mindfulness, or focusing the mind on a particular object, thought, or activity – to train attention and awareness, and achieve a mentally clear and emotionally calm and stable state.[1]:228–29[2]:180[3]:415[4]:107[5][6] Scholars have found meditation elusive to define, as practices vary both between traditions and within them.</p>
+          <p>Physical exercise is important for maintaining physical fitness and can contribute to maintaining a healthy
+            weight, regulating the digestive system, building and maintaining healthy bone density, muscle strength, and
+            joint mobility, promoting physiological well-being, reducing surgical risks, and strengthening the immune
+            system. Some studies indicate that exercise may increase life expectancy and the overall quality of
+            life.[11] People who participate in moderate to high levels of physical exercise have a lower mortality rate
+            compared to individuals who by comparison are not physically active.[12] Moderate levels of exercise have
+            been correlated with preventing aging by reducing inflammatory potential.[13] The majority of the benefits
+            from exercise are achieved with around 3500 metabolic equivalent (MET) minutes per week, with diminishing
+            returns at higher levels of activity.[14] For example, climbing stairs 10 minutes, vacuuming 15 minutes,
+            gardening 20 minutes, running 20 minutes, and walking or bicycling for transportation 25 minutes on a daily
+            basis would together achieve about 3000 MET minutes a week.[14] A lack of physical activity causes
+            approximately 6% of the burden of disease from coronary heart disease, 7% of type 2 diabetes, 10% of breast
+            cancer and 10% of colon cancer worldwide</p>
+        </div>
+      </section>
+      <section id="section3" data-nav="Meditation">
+        <div class="landing__container">
+          <h2>Meditation</h2>
+          <p>Meditation is a practice where an individual uses a technique – such as mindfulness, or focusing the mind
+            on a particular object, thought, or activity – to train attention and awareness, and achieve a mentally
+            clear and emotionally calm and stable state.[1]:228–29[2]:180[3]:415[4]:107[5][6] Scholars have found
+            meditation elusive to define, as practices vary both between traditions and within them.</p>
 
-        <p> Meditation is practiced in numerous religious traditions. The earliest records of meditation (dhyana) are found in the ancient Hindu texts known as the Vedas, and meditation plays a salient role in the contemplative repertoire of Hinduism and Buddhism.[7] Since the 19th century, Asian meditative techniques have spread to other cultures where they have also found application in non-spiritual contexts, such as business and health.</p>
+          <p> Meditation is practiced in numerous religious traditions. The earliest records of meditation (dhyana) are
+            found in the ancient Hindu texts known as the Vedas, and meditation plays a salient role in the
+            contemplative repertoire of Hinduism and Buddhism.[7] Since the 19th century, Asian meditative techniques
+            have spread to other cultures where they have also found application in non-spiritual contexts, such as
+            business and health.</p>
 
-         <p> Meditation may significantly reduce stress, anxiety, depression, and pain,[8] and enhance peace, perception,[9] self-concept, and well-being.[10][11][12][13] Research is ongoing to better understand the effects of meditation on health (psychological, neurological, and cardiovascular) and other areas.</p>
-      </div>
-    </section>
-    <section id="section4"  data-nav="Relationship">
-      <div class="landing__container">
-        <h2>Relationship</h2>
-        <p>There is empirical evidence of the causal impact of social relationships on health. The social support theory suggests that relationships might promote health especially by promoting adaptive behavior or regulating the stress response.[1] Troubled relationships as well as loneliness and social exclusion may have negative consequences on health.[2] Neurosciences of health investigate the neuronal circuits implicated in the context of both social connection and disconnection.[3]</p>
+          <p> Meditation may significantly reduce stress, anxiety, depression, and pain,[8] and enhance peace,
+            perception,[9] self-concept, and well-being.[10][11][12][13] Research is ongoing to better understand the
+            effects of meditation on health (psychological, neurological, and cardiovascular) and other areas.</p>
+        </div>
+      </section>
+      <section id="section4" data-nav="Relationship">
+        <div class="landing__container">
+          <h2>Relationship</h2>
+          <p>There is empirical evidence of the causal impact of social relationships on health. The social support
+            theory suggests that relationships might promote health especially by promoting adaptive behavior or
+            regulating the stress response.[1] Troubled relationships as well as loneliness and social exclusion may
+            have negative consequences on health.[2] Neurosciences of health investigate the neuronal circuits
+            implicated in the context of both social connection and disconnection.[3]</p>
 
-        <p>Poor relationships have a negative impact on health outcomes. In 1985, Cohen and Wills presented two models that have been employed to describe this connection: the main effect model and the stress-buffering model.[2] The main effect model postulates that our social networks influence our psychology (our affect) and our physiology (biological responses). These three variables are thought to influence health, as described in Figure 1. This model predicts that increasing social networks may enhance general health. A possible mechanism by which social networks improve our health is through our behaviors: if our social network influences us to behave in a certain way that enhances our health, then it can be argued that our social network influences our health.</p>
-      </div>
-    </section>
-  </main>
-  <footer class="page__footer">
-    <p>&copy Kripa</p>
-  </footer>
-  <script src="js/app.js"></script>
-</body>
+          <p>Poor relationships have a negative impact on health outcomes. In 1985, Cohen and Wills presented two models
+            that have been employed to describe this connection: the main effect model and the stress-buffering
+            model.[2] The main effect model postulates that our social networks influence our psychology (our affect)
+            and our physiology (biological responses). These three variables are thought to influence health, as
+            described in Figure 1. This model predicts that increasing social networks may enhance general health. A
+            possible mechanism by which social networks improve our health is through our behaviors: if our social
+            network influences us to behave in a certain way that enhances our health, then it can be argued that our
+            social network influences our health.</p>
+        </div>
+      </section>
+    </main>
+    <footer class="page__footer">
+      <p>Done by Kripa</p>
+    </footer>
+    <script src="js/app.js"></script>
+  </body>
+
 </html>

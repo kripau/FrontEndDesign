@@ -91,7 +91,7 @@ function enableScroll() {
       const sectionID = event.target.getAttribute("data-id");
       const section = document.getElementById(sectionID);
       activateNav(sectionID);
-      section.scrollIntoView();
+      section.scrollIntoView({ behavior: "smooth" });
       activateSection(sectionID);
     });
   }
