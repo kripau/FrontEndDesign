@@ -34,10 +34,25 @@ function createNavElement(sec) {
   return anchor;
 }
 
-// activate section
-function activateSection(id) {
+// Is the section in the viewport
+function isInViewport(sec) {
+  const boundingBox = sec.getBoundingClientRect();
+  return (
+    boundingBox.top >= 0 &&
+    boundingBox.left >= 0 &&
+    boundingBox.bottom <=
+      (window.innerHeight || document.documentElement.clientHeight) &&
+    boundingBox.right <=
+      (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
+// Add class 'active' to section when near top of viewport
+function activateSection() {
   for (let i = 0; i < sectionList.length; i++) {
-    if (sectionList[i].id === id) {
+    if (isInViewport(sectionList[i])) {
+      id = sectionList[i].getAttribute("id");
+      activateNav(id);
       sectionList[i].classList.add("your-active-class");
     } else {
       sectionList[i].classList.remove("your-active-class");
@@ -45,11 +60,11 @@ function activateSection(id) {
   }
 }
 
-//activate nav
-function activateNav(id) {
+//activate nav selection
+function activateNav(dataID) {
   const navItems = document.getElementsByClassName("menu__link");
   for (let i = 0; i < navItems.length; i++) {
-    if (navItems[i].dataset.id === id) {
+    if (navItems[i].dataset.id === dataID) {
       navItems[i].classList.add("nav-active-class");
     } else {
       navItems[i].classList.remove("nav-active-class");
@@ -64,7 +79,6 @@ function activateNav(id) {
  */
 
 // build the nav
-
 function addNavItem() {
   let fragment = document.createDocumentFragment();
   for (let i = 0; i < sectionList.length; i++) {
@@ -90,27 +104,16 @@ function enableScroll() {
     navItems[i].addEventListener("click", function (event) {
       const sectionID = event.target.getAttribute("data-id");
       const section = document.getElementById(sectionID);
-      activateNav(sectionID);
       section.scrollIntoView({ behavior: "smooth" });
-      activateSection(sectionID);
+      activateSection();
     });
   }
 }
 
-// mouse enter evenhandler
-// highlight Nav and Section area
-function highlightSectionNav() {
-  for (let i = 0; i < sectionList.length; i++) {
-    let functionHandler = function (i) {
-      return function () {
-        id = sectionList[i].getAttribute("id");
-        activateSection(id);
-        activateNav(id);
-      };
-    };
-    sectionList[i].addEventListener("mouseenter", functionHandler(i));
-  }
-}
+//   Scroll eventhandler
+document.addEventListener("scroll", function () {
+  activateSection();
+});
 
 // Build menu (done)
 
@@ -141,8 +144,36 @@ function buttonElement() {
 function main() {
   addNavItem();
   enableScroll();
-  highlightSectionNav();
   buttonElement();
 }
 
 main();
+
+// Extra note:
+// mouse enter evenhandler
+// highlight Nav and Section area
+
+// activate section
+/* function activateSection(id) {
+  for (let i = 0; i < sectionList.length; i++) {
+    if (sectionList[i].id === id) {
+      sectionList[i].classList.add("your-active-class");
+    } else {
+      sectionList[i].classList.remove("your-active-class");
+    }
+  }
+} */
+
+/* function highlightSectionNav() {
+  for (let i = 0; i < sectionList.length; i++) {
+    let functionHandler = function (i) {
+      return function () {
+        id = sectionList[i].getAttribute("id");
+        activateSection(id);
+        activateNav(id);
+      };
+    };
+    sectionList[i].addEventListener("mouseenter", functionHandler(i));
+    // sectionList[i].addEventListener("touchstart", functionHandler(i));
+  }
+} */
