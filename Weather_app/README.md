@@ -2,11 +2,11 @@
 
 ## Objective
 
-### This project is done to understand Web APIs and asynchronous code. Using it, web app  is created that utilizes OpenWeatherMap API to get weather data based on user's location (zipcode) and dynamically update UI.
+This project is done to understand Web APIs and asynchronous code. Using it, web app  is created that utilizes OpenWeatherMap API to get weather data based on user's location (zipcode) and dynamically update UI.
 
 ## Setup
 
-### Following steps are followed to run the project
+Following steps are followed to run the project
 
 * Node and packages (express, cors and body-parser) are installed that are used to create the server.
 * After creating the server, 'node server.js' command is run in the terminal
@@ -22,7 +22,7 @@
 
 ## Technology used
 
-#### HTML, CSS, Javascript (Vanilla)
+HTML, CSS, Javascript (Vanilla)
 
 
 ## Final Output
