@@ -17,7 +17,7 @@ function performAction(e) {
   getTemperature(baseURL, zipCode, key).then(function (data) {
     // Add data to POST request
     postData("http://localhost:8000/addWeatherData", {
-      temperature: tempKelvinToCelsius(data.main.temp),
+      temperature: data.main.temp,
       date: newDate,
       user_response: feelings,
     })
@@ -30,7 +30,16 @@ function performAction(e) {
 
 // Async GET
 const getTemperature = async (baseURL, code, key) => {
-  const response = await fetch(baseURL + code + ",us" + "&APPID=" + key);
+  let dropdownSelection = document.getElementById("dropdownContent").value;
+  let urlUnitComponent = "";
+  if (dropdownSelection === "Celsius") {
+    urlUnitComponent = "&units=metric";
+  } else if (dropdownSelection === "Kelvin") {
+    urlUnitComponent = "&units=imperial";
+  }
+  const response = await fetch(
+    baseURL + code + ",us" + "&APPID=" + key + urlUnitComponent
+  );
   try {
     const data = await response.json();
     return data;
@@ -50,8 +59,8 @@ const postData = async (url = "", data = {}) => {
     body: JSON.stringify(data),
   });
   try {
-    // console.log('Post data function?');
     let newData = await postRequest.json();
+    console.log(newData);
     return newData;
   } catch (error) {
     console.log("Error", error);
@@ -63,19 +72,18 @@ const updateUI = async () => {
   const serverResponse = await fetch("http://localhost:8000/all");
   try {
     const allData = await serverResponse.json();
+
+    let dropdownSelection = document.getElementById("dropdownContent").value;
+    let tempUnit = "";
+    if (dropdownSelection === "Celsius") {
+      tempUnit = " &deg;C";
+    } else if (dropdownSelection === "Kelvin") {
+      tempUnit = " &deg;K";
+    }
     document.getElementById("date").innerHTML = allData.date;
-    document.getElementById("temp").innerHTML = allData.temperature;
+    document.getElementById("temp").innerHTML = allData.temperature + tempUnit;
     document.getElementById("content").innerHTML = allData.user_response;
   } catch (error) {
     console.log("error", error);
   }
 };
-
-// helper function to convert temp from Kelvin to Celsius
-function tempKelvinToCelsius(K) {
-  if (K < 0) {
-    return "below absolute zero (0 K)";
-  } else {
-    return (K - 273.15).toFixed(2) + " C";
-  }
-}

@@ -69,6 +69,16 @@ label {
   color: black;
 }
 
+#dropdownContent {
+  display: block;
+  height: 60px;
+  width: 220px;
+  background: #fcffe9;
+  color: #141414;
+  font-size: 20px;
+  font-family: "Oswald", sans-serif;
+}
+
 input {
   display: block;
   height: 60px;
