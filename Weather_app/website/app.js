@@ -34,12 +34,14 @@ const getTemperature = async (baseURL, code, key) => {
   let urlUnitComponent = "";
   if (dropdownSelection === "Celsius") {
     urlUnitComponent = "&units=metric";
-  } else if (dropdownSelection === "Kelvin") {
+  } else if (dropdownSelection === "Fahrenheit") {
     urlUnitComponent = "&units=imperial";
+  } else {
+    urlUnitComponent = "&units=standard";
   }
-  const response = await fetch(
-    baseURL + code + ",us" + "&APPID=" + key + urlUnitComponent
-  );
+  let requestURL = baseURL + code + ",us" + "&APPID=" + key + urlUnitComponent;
+  console.log("request url ", requestURL);
+  const response = await fetch(requestURL);
   try {
     const data = await response.json();
     return data;
@@ -77,7 +79,9 @@ const updateUI = async () => {
     let tempUnit = "";
     if (dropdownSelection === "Celsius") {
       tempUnit = " &deg;C";
-    } else if (dropdownSelection === "Kelvin") {
+    } else if (dropdownSelection === "Fahrenheit") {
+      tempUnit = " &deg;F";
+    } else {
       tempUnit = " &deg;K";
     }
     document.getElementById("date").innerHTML = allData.date;
