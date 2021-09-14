@@ -3,41 +3,68 @@
     <head>
         <meta charset="utf-8">
         <title>Test</title>
-        <link rel="stylesheet" href="/styles/resets.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- <script type="text/javascript" src="../../../dist/main.js"></script> -->
+        <!-- <link rel="stylesheet" href="/styles/resets.css">
         <link rel="stylesheet" href="/styles/base.css">
         <link rel="stylesheet" href="/styles/header.css">
         <link rel="stylesheet" href="/styles/form.css">
-        <link rel="stylesheet" href="/styles/footer.css">
+        <link rel="stylesheet" href="/styles/footer.css"> -->
     </head>
 
     <body>
 
         <header>
-            <div class="">
-                Logo
-            </div>
-            <div class="">
-                navigation
+            <div class="title">
+                <h1>Evaluate The Sentiment of The News Website Using Advanced Natural Language Processing</h1>
             </div>
         </header>
+        <section class="intro">
+            <!-- <img src=<%=require('../assets/nlp.jpg') %> alt="NLP image" class="intro-img"> -->
 
+            <!-- <img src={require("../assets/nlp.jpg")} /> -->
+            <img src="../assets/nlp.jpg" alt="NLP image" class="intro-img">
+            <!-- <div class="description">
+                Natural language processing (NLP) is the ability of a computer program to understand human language as it is spoken and written -- referred to as natural language. It is a component of artificial intelligence (AI). NLP enables computers to understand natural language as humans do. Whether the language is spoken or written, natural language processing uses artificial intelligence to take real-world input, process it, and make sense of it in a way a computer can understand.
+            </div> -->
+        </section>
         <main>
-            <section>
-                <form class="" onsubmit="return handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
+            <section class="sec">
+                <form class="form" onsubmit="return Client.handleSubmit(event)">
+                    <input id="url" type="text" name="input" value="" placeholder="Add a URL to a news article">
+                    <input id="submit" type="submit" name="Submit" value="Analyse the text" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
             </section>
 
             <section>
-                <strong>Form Results:</strong>
-                <div id="results"></div>
+                <div class="resultSection" id="results">
+
+                    <h2 id="evaluateId">Evaluation of Results:</h2>
+                    <p id="error"></p>
+                    <p id="current_url"></p>
+                    <p id="sentiment"></p>
+                    <p id="agreement"></p>
+                    <p id="subjectivity"></p>
+                    <p id="confidence"></p>
+                    <p id="irony"></p>
+                </div>
             </section>
         </main>
 
         <footer>
-            <p>This is a footer</p>
+            <p>Read more about Meaning Cloud <a href="https://learn.meaningcloud.com/developer/sentiment-analysis/2.1/doc" target="_blank">here</a>.</p>
+            <p>&copy; 2021 <a href="https://github.com/kripau" target="_blank">Kripa</a></p>
         </footer>
 
+        <!-- <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+           </script> -->
     </body>
 </html>
