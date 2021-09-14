@@ -22,17 +22,6 @@ input {
   margin-top: 1.2em;
 }
 
-// .intro-img{
-//     // border: 1px solid #ddd;
-// //   border-radius: 4px;
-//   padding: 5px;
-// //   width: 150px;
-//   max-width: 80%;
-//   // display:block;
-//   // border: 0;
-//   justify-content: center;
-
-// }
 img {
   display: block;
   margin-left: auto;
@@ -40,20 +29,19 @@ img {
   width: 80%;
 }
 
-
-
-
 #url, #submit {
   font-size: 1.2em ;
 }
 
 #results{
   font-size: 1.6em;
+  h2{
+    font-size: 1.3em;
+    color: rgb(16, 30, 228);
+  }
 }
 
-h2{
-  font-size: 1.9em;
-}
+
 
 @media screen and (max-width: 700px) {
     #url, #submit {
@@ -63,17 +51,7 @@ h2{
 
 
 
-// @media screen and (max-width: 700px) {
-//   .intro-img {
-//     max-width: 100%;
-//     // vertical-align:bottom
 
-
-//     display:block;
-//     padding:0 10px;
-//     margin: 0;
-//   }
-// }
 
 @media screen and (max-width: 700px) {
   #results{

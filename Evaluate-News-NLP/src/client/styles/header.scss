@@ -1,17 +1,22 @@
 header {
   display: flex;
-
-  max-width: 800px;
+  width: 100%;
   margin: 10px auto;
   padding: 10px 10px;
   // margin: 10px;
   border: 50px;
+  justify-content: center;
+
+  background-color: rgb(201, 126, 104);
+
   h1 {
     // max-width: 80%;
     font-size: 2.2em;
-    justify-content: center;
+    max-width: 800px;
+    text-align: center;
+
+    // justify-content: center;
     color: rgb(27, 6, 121);
-    // background-color: rgb(201, 126, 104);
   }
 }
 
@@ -19,7 +24,6 @@ header {
   header {
     h1 {
       font-size: 1.5em;
-      background-color: rgb(201, 126, 104);
-    }
+      }
   }
 }
