@@ -48,15 +48,18 @@
             <p>&copy; 2021 <a href="https://github.com/kripau" target="_blank">Kripa</a></p>
         </footer>
 
-        <!-- <script>
+        <script>
             // Check that service workers are supported
             if ('serviceWorker' in navigator) {
                 // Use the window load event to keep the page load performant
                 window.addEventListener('load', () => {
-                    navigator.serviceWorker.register('/service-worker.js');
+                    navigator.serviceWorker
+                        .register('src/client/service-worker.js')
+                        .then(reg => console.log('Service Worker : Registered'))
+                        .catch(err => console.log(`Service Worker: Error : ${err}`))
                 });
             }
-           </script> -->
+        </script>
     </body>
 
 </html>

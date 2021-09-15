@@ -1,8 +1,18 @@
 footer {
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1.7em;
   width: 100%;
-  background-color: rgb(201, 126, 104);
+  background-color: #24292f;
   margin-top: 2em;
-  color: rgb(236, 228, 228);
+  color: #f6f8fa;
+}
+
+a {
+  color: rgb(73, 152, 204);
+}
+
+@media screen and (max-width: 700px) {
+  footer {
+    font-size: 1.1em;
+  }
 }

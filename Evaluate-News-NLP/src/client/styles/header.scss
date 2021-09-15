@@ -3,20 +3,15 @@ header {
   width: 100%;
   margin: 10px auto;
   padding: 10px 10px;
-  // margin: 10px;
   border: 50px;
   justify-content: center;
-
-  background-color: rgb(201, 126, 104);
+  background-color: #24292f;
 
   h1 {
-    // max-width: 80%;
     font-size: 2.2em;
     max-width: 800px;
     text-align: center;
-
-    // justify-content: center;
-    color: rgb(27, 6, 121);
+    color: rgb(255, 255, 255);
   }
 }
 
@@ -24,6 +19,6 @@ header {
   header {
     h1 {
       font-size: 1.5em;
-      }
+    }
   }
 }

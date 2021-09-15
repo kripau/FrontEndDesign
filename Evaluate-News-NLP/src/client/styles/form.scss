@@ -1,24 +1,23 @@
 form {
-    border: 1px solid #545454;
-    border-radius: 3px;
-    padding: 40px;
-    font-size: 1.2em;
+  border: 1px solid #545454;
+  border-radius: 3px;
+  padding: 40px;
+  font-size: 1.2em;
 }
 
 input {
-    padding: 5px 20px;
-    width: 100%;
-    line-height: 16px;
-    margin: 10px 0;
+  padding: 5px 20px;
+  width: 100%;
+  line-height: 16px;
+  margin: 10px 0;
 }
 
-
-.intro{
+.intro {
   margin-top: 0em;
   margin-bottom: 0em;
-  // justify-content: center;
 }
-.sec{
+
+.sec {
   margin-top: 1.2em;
 }
 
@@ -29,32 +28,29 @@ img {
   width: 80%;
 }
 
-#url, #submit {
-  font-size: 1.2em ;
+#url,
+#submit {
+  font-size: 1.2em;
 }
 
-#results{
+#results {
   font-size: 1.6em;
-  h2{
+  h2 {
     font-size: 1.3em;
-    color: rgb(16, 30, 228);
+    font-weight: bold;
+    color: rgb(0, 1, 12);
   }
 }
 
-
-
 @media screen and (max-width: 700px) {
-    #url, #submit {
-        font-size: 0.7em ;
-      }
+  #url,
+  #submit {
+    font-size: 0.7em;
   }
-
-
-
-
+}
 
 @media screen and (max-width: 700px) {
-  #results{
+  #results {
     font-size: 0.9em;
   }
 }

@@ -34,7 +34,7 @@ export async function handleSubmit(event) {
       .then((res) => res.json())
       .then((res) => {
         error.innerHTML = "";
-        sentiment.innerHTML = "Sentiment:  " + res.sentiment;
+        sentiment.innerHTML = "Sentiment:  " + getSentiment(res);
         agreement.innerHTML = "Agreement:  " + res.agreement;
         subjectivity.innerHTML = "Subjectivity:  " + res.subjectivity;
         confidence.innerHTML = "Confidence:  " + res.confidence;
@@ -46,4 +46,8 @@ export async function handleSubmit(event) {
     error.innerHTML =
       "Invalid URL. Please make sure the URL starts with http:// or https:// and has no spaces.";
   }
+}
+
+export function getSentiment(res) {
+  return res.sentiment;
 }
