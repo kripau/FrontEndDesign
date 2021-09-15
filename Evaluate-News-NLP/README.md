@@ -47,7 +47,7 @@ $~~~~~~~~~~~$
 $~~~~~~~~~~~$
 $~~~~~~~~~~~$
 
-![Final Output](./src/client/assets/NLP_image.png "Web version")
+![Final Output](./src/client/assets/NLP_image.PNG "Web version")
 $~~~~~~~~~~~$
 $~~~~~~~~~~~$
 $~~~~~~~~~~~$
@@ -57,4 +57,4 @@ $~~~~~~~~~~~$
 $~~~~~~~~~~~$
 $~~~~~~~~~~~$
 
-![Final Output](./src/client/assets/NLP_image2.png "Mobile version")
+![Final Output](./src/client/assets/NLP_image2.PNG "Mobile version")
