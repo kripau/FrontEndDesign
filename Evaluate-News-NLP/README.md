@@ -38,23 +38,12 @@ To use the app, we need to enter the URL of the news article in the input box an
 HTML, CSS, NodeJS, Javascript (Vanilla), Express, Webpack, Sentiment Analysis
 
 
-## Final Output
-$~~~~~~~~~~~$
-$~~~~~~~~~~~$
-$~~~~~~~~~~~$
-### WEB VERSION
-$~~~~~~~~~~~$
-$~~~~~~~~~~~$
-$~~~~~~~~~~~$
+## User Interface (UI)
+
+### WEB UI
 
 ![Final Output](./src/client/assets/NLP_image.PNG "Web version")
-$~~~~~~~~~~~$
-$~~~~~~~~~~~$
-$~~~~~~~~~~~$
-### MOBILE VERSION
-$~~~~~~~~~~~$
-$~~~~~~~~~~~$
-$~~~~~~~~~~~$
-$~~~~~~~~~~~$
+
+### MOBILE UI
 
 ![Final Output](./src/client/assets/NLP_image2.PNG "Mobile version")
