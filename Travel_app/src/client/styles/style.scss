@@ -1,0 +1,174 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #979293;
+}
+
+#app {
+  display: grid;
+  grid-template-areas: "h h" "containerEntry entry" "containerEntry entry";
+  justify-content: center;
+  grid-gap: 1em;
+  font-size: 20px;
+  font-family: "Oswald", sans-serif;
+}
+
+header {
+  grid-area: h;
+  color: rgb(245, 244, 247);
+  font-size: 2em;
+  text-align: center;
+}
+
+.entry {
+  background: #fde0d9;
+  grid-area: entry;
+  background-size: cover;
+  background-position: center;
+  padding: 3rem;
+}
+
+.containerEntry {
+  background: #fde0d9;
+  grid-area: containerEntry;
+  background-size: cover;
+  background-position: center;
+  padding: 3rem;
+}
+
+#date {
+  color: black;
+  font-size: 25px;
+  text-align: center;
+  padding: 1em;
+}
+
+#temp {
+  color: black;
+  font-size: 35px;
+  text-align: center;
+  padding: 1em;
+}
+
+#content {
+  color: black;
+  font-size: 25px;
+  text-align: center;
+  padding: 1em;
+}
+
+.title {
+  color: black;
+  font-size: 35px;
+  text-align: center;
+}
+
+/*  Basic Styling To Override Default For Basic HTML Elements */
+label {
+  display: block;
+  font-size: 27px;
+  color: black;
+}
+
+#dropdownContent {
+  display: block;
+  height: 60px;
+  width: 220px;
+  background: #fcffe9;
+  color: #141414;
+  font-size: 20px;
+  font-family: "Oswald", sans-serif;
+}
+
+input {
+  display: block;
+  height: 60px;
+  width: 320px;
+  background: #fcffe9;
+  color: #141414;
+  font-size: 20px;
+  font-family: "Oswald", sans-serif;
+}
+
+button {
+  width: 200px;
+  height: 50px;
+  background: #3b4a6b;
+  color: #f0d43a;
+  font-size: 26px;
+  font-family: "Oswald", sans-serif;
+  border: none;
+  box-shadow: 2px 4px 5px #444;
+  justify-content: center;
+}
+h1 {
+  font-size: 36px;
+}
+
+textarea {
+  background: #fcffe9;
+  color: #0f0f0f;
+  font-size: 20px;
+  font-family: "Oswald", sans-serif;
+}
+
+/* Reset style for HTML element on active to have no border*/
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+/* Style for Placeholder Text*/
+::placeholder {
+  /* Firefox, Chrome, Opera */
+  color: #585655;
+  font-family: "Oswald", sans-serif;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #585655;
+  font-family: "Oswald", sans-serif;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #585655;
+  font-family: "Oswald", sans-serif;
+}
+
+#zip,
+#feelings,
+#generate {
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+footer {
+  text-align: center;
+  font-size: 1em;
+  width: 80%;
+  margin: 0 auto 25px;
+  color: rgb(243, 238, 238);
+}
+
+/* Media Queries */
+@media screen and (max-width: 700px) {
+  #app {
+    grid-template-areas: "h h" "containerEntry containerEntry" "entry entry";
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media screen and (max-width: 500px) {
+  textarea {
+    width: 320px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  textarea,
+  input {
+    width: 220px;
+  }
+}
