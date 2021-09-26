@@ -4,36 +4,128 @@ body {
 }
 
 #app {
-  display: grid;
-  grid-template-areas: "h h" "containerEntry entry" "containerEntry entry";
-  justify-content: center;
-  grid-gap: 1em;
+  // display: grid;
+  // display: flex;
+  // grid-template-areas: "h h" "containerEntry trip_result" "containerEntry trip_result";
+  // justify-content: center;
+  // grid-gap: 1em;
   font-size: 20px;
   font-family: "Oswald", sans-serif;
-}
-
-header {
-  grid-area: h;
-  color: rgb(245, 244, 247);
-  font-size: 2em;
   text-align: center;
+
+  span{
+    color: blue;
+  }
+
+  header {
+    grid-area: h;
+    color: rgb(245, 244, 247);
+    font-size: 3em;
+    text-align: center;
+  }
+
+  label {
+    display: block;
+    font-size: 27px;
+    color: black;
+  }
+
+  input {
+    // display: block;
+    height: 60px;
+    width: 320px;
+    background: #fcffe9;
+    color: #141414;
+    font-size: 20px;
+    // text-align: center;
+    font-family: "Oswald", sans-serif;
+    // justify-content: center;
+
+  }
+
+  .containerEntry {
+    background: #fde0d9;
+    // background-image: url("./client/media/cover.jpg");
+    // background-image: url("cover.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 3rem;
+  }
+
+  button {
+    width: 200px;
+    height: 50px;
+    background: #3b4a6b;
+    color: #f0d43a;
+    font-size: 26px;
+    font-family: "Oswald", sans-serif;
+    border: none;
+    box-shadow: 2px 4px 5px #444;
+    justify-content: center;
+  }
 }
 
-.entry {
-  background: #fde0d9;
-  grid-area: entry;
+/*  Basic Styling To Override Default For Basic HTML Elements */
+
+
+.trip_result {
+  background: #dddada;
   background-size: cover;
   background-position: center;
-  padding: 3rem;
+  padding: 2em;
+  text-align: center;
+  .title{
+    font-size: 2.2em;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5em;
+  }
+
+  #tripDescription{
+    font-size: 2em;
+    margin: 1.1em;
+    padding: 0.8em;
+    line-height: 1.6em
+
+  }
+
+  #image_country{
+    width: 80%;
+    margin-top: 0.8em;
+  }
 }
 
-.containerEntry {
-  background: #fde0d9;
-  grid-area: containerEntry;
+
+.countryDetail {
+  background: #141414;
   background-size: cover;
   background-position: center;
-  padding: 3rem;
+  padding: 2em;
+  text-align: center;
+  color: #ffffff;
+  .countryTitle{
+    font-size: 2.2em;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5em;
+  }
+  #countryInfo{
+    font-size: 2em;
+    margin: 1.1em;
+    padding: 0.8em;
+    line-height: 1.6em
+  }
+  #flag_country{
+    width: 30%;
+    margin-top: 0.8em;
+  }
 }
+
+
 
 #date {
   color: black;
@@ -42,19 +134,19 @@ header {
   padding: 1em;
 }
 
-#temp {
-  color: black;
-  font-size: 35px;
-  text-align: center;
-  padding: 1em;
-}
+// #temp {
+//   color: black;
+//   font-size: 35px;
+//   text-align: center;
+//   padding: 1em;
+// }
 
-#content {
-  color: black;
-  font-size: 25px;
-  text-align: center;
-  padding: 1em;
-}
+// #content {
+//   color: black;
+//   font-size: 25px;
+//   text-align: center;
+//   padding: 1em;
+// }
 
 .title {
   color: black;
@@ -62,113 +154,137 @@ header {
   text-align: center;
 }
 
-/*  Basic Styling To Override Default For Basic HTML Elements */
-label {
-  display: block;
-  font-size: 27px;
-  color: black;
-}
 
-#dropdownContent {
-  display: block;
-  height: 60px;
-  width: 220px;
-  background: #fcffe9;
-  color: #141414;
-  font-size: 20px;
-  font-family: "Oswald", sans-serif;
-}
 
-input {
-  display: block;
-  height: 60px;
-  width: 320px;
-  background: #fcffe9;
-  color: #141414;
-  font-size: 20px;
-  font-family: "Oswald", sans-serif;
-}
+// #dropdownContent {
+//   display: block;
+//   height: 60px;
+//   width: 220px;
+//   background: #fcffe9;
+//   color: #141414;
+//   font-size: 20px;
+//   font-family: "Oswald", sans-serif;
+// }
 
-button {
-  width: 200px;
-  height: 50px;
-  background: #3b4a6b;
-  color: #f0d43a;
-  font-size: 26px;
-  font-family: "Oswald", sans-serif;
-  border: none;
-  box-shadow: 2px 4px 5px #444;
-  justify-content: center;
-}
-h1 {
-  font-size: 36px;
-}
 
-textarea {
-  background: #fcffe9;
-  color: #0f0f0f;
-  font-size: 20px;
-  font-family: "Oswald", sans-serif;
-}
 
-/* Reset style for HTML element on active to have no border*/
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-  outline: none;
-}
-/* Style for Placeholder Text*/
-::placeholder {
-  /* Firefox, Chrome, Opera */
-  color: #585655;
-  font-family: "Oswald", sans-serif;
-}
 
-:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: #585655;
-  font-family: "Oswald", sans-serif;
-}
 
-::-ms-input-placeholder {
-  /* Microsoft Edge */
-  color: #585655;
-  font-family: "Oswald", sans-serif;
-}
 
-#zip,
-#feelings,
-#generate {
-  border: 1px solid black;
-  border-radius: 3px;
-}
+// h1 {
+//   font-size: 36px;
+// }
+
+// textarea {
+//   background: #fcffe9;
+//   color: #0f0f0f;
+//   font-size: 20px;
+//   font-family: "Oswald", sans-serif;
+// }
+
+// /* Reset style for HTML element on active to have no border*/
+// input:focus,
+// select:focus,
+// textarea:focus,
+// button:focus {
+//   outline: none;
+// }
+
+
+// /* Style for Placeholder Text*/
+// ::placeholder {
+//   /* Firefox, Chrome, Opera */
+//   color: #585655;
+//   font-family: "Oswald", sans-serif;
+// }
+
+// :-ms-input-placeholder {
+//   /* Internet Explorer 10-11 */
+//   color: #585655;
+//   font-family: "Oswald", sans-serif;
+// }
+
+// ::-ms-input-placeholder {
+//   /* Microsoft Edge */
+//   color: #585655;
+//   font-family: "Oswald", sans-serif;
+// }
+
+// #zip,
+// #feelings,
+// #generate {
+//   border: 1px solid black;
+//   border-radius: 3px;
+// }
 
 footer {
   text-align: center;
-  font-size: 1em;
+  font-size: 1.5em;
   width: 80%;
   margin: 0 auto 25px;
   color: rgb(243, 238, 238);
 }
 
 /* Media Queries */
-@media screen and (max-width: 700px) {
-  #app {
-    grid-template-areas: "h h" "containerEntry containerEntry" "entry entry";
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-}
+// @media screen and (max-width: 700px) {
+//   #app {
+//     grid-template-areas: "h h" "containerEntry containerEntry" "trip_result trip_result";
+//     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+//   }
+// }
 
-@media screen and (max-width: 500px) {
-  textarea {
-    width: 320px;
-  }
-}
+// @media screen and (max-width: 500px) {
+//   textarea {
+//     width: 320px;
+//   }
+// }
 
-@media screen and (max-width: 400px) {
-  textarea,
-  input {
+@media only screen and (max-width: 700px) {
+  #app{
+    input {
     width: 220px;
+    }
   }
 }
+
+
+@media only screen and (max-width: 700px) {
+  .trip_result {
+    text-align: left;
+
+    .title{
+      font-size: 2em;
+    }
+
+    #tripDescription{
+      font-size: 1em;
+
+
+    }
+
+    #image_country{
+      width: 100%;
+      margin-top: 0.8em;
+    }
+  }
+}
+
+@media only screen and (max-width: 700px){
+  .countryDetail {
+    .countryTitle{
+      font-size: 2em;
+    }
+    #countryInfo{
+      font-size: 1em;
+    }
+    #flag_country{
+      width: 60%;
+    }
+  }
+}
+
+@media only screen and (max-width: 700px){
+footer {
+  font-size: 1em;
+
+}}

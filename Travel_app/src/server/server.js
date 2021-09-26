@@ -61,6 +61,30 @@ async function postTravelData(request, response) {
   }
   let data_pixabay = await pixabayApi(location);
   const imageURL = data_pixabay.hits[0].webformatURL;
+
+  let data_rest = await restcountriesAPI(countryName);
+  // console.log("rest data ", data_rest)
+  const officialName = data_rest[0].name.official;
+  const currencyCode = Object.keys(data_rest[0].currencies)[0];
+  const currencyName =data_rest[0].currencies[currencyCode].name;
+  // console.log("currency code ", currencyCode, " currency name ", currencyName)
+  const capital = data_rest[0].capital[0];
+  const region = data_rest[0].region;
+  const subregion = data_rest[0].subregion;
+  const languageCode = Object.keys(data_rest[0].languages)[0];
+  const language = data_rest[0].languages[languageCode];
+  const flag = data_rest[0].flags[1];
+  console.log("first block", data_rest[0])
+  console.log("office name", officialName)
+  // console.log(currency)
+  // console.log(capital)
+  // console.log(region)
+  // console.log(subregion)
+  // console.log(language)
+  // console.log(flag)
+
+
+
   // console.log(imageURL)
   // console.log (lat);
   // console.log (lng);
@@ -76,7 +100,18 @@ async function postTravelData(request, response) {
     normal_temp: temp,
     description: description,
     imageURL: imageURL,
+    officialName:officialName,
+    currencyCode: currencyCode,
+    currency :currencyName,
+    capital : capital,
+    region : region,
+    subregion :subregion,
+    language :language,
+    flag :flag,
   };
+
+
+
   console.log("value to be return :", resposeData);
   response.send(resposeData);
 }
@@ -129,6 +164,20 @@ async function pixabayApi(location) {
   const pixabayURL = `${baseUrl}//?key=${API_pixabay}&category=place&q=${location}&image_type=photo}`;
   // console.log(pixabayURL);
   data = await fetch(pixabayURL).then((res) => res.json());
+  console.log(data);
+  return data;
+}
+
+
+async function restcountriesAPI(country) {
+  const baseUrl = "https://restcountries.com";
+  // const API_pixabay = "22446826-ca79efd142210a603f0eb7331"; // process.env.API_geonames;
+  // console.log("from env file", process.env.API_geonames); // TODO: need to fix
+
+  const restcountriesURL = `${baseUrl}/v3/name/${country}`;
+  // console.log(pixabayURL);
+  data = await fetch(restcountriesURL).then((res) => res.json());
   // console.log(data);
   return data;
 }
+

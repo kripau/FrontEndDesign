@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Journal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="./styles/style.scss"> -->
   </head>
@@ -12,54 +13,73 @@
   <body>
     <div id="app">
       <header>
-        <div class="holder headline">TRAVEL APP</div>
+        <div class="headline">TRAVEL <span>APP</span> </div>
       </header>
       <div class="containerEntry">
-        <div class="holder location">
+        <div class=" location">
           <label for="loc">My Trip To</label>
-          <input type="text" id="loc" placeholder="Enter city eg Sydney ">
+          <input type="text" id="loc" placeholder="Enter city eg. Sydney ">
         </div>
-        <div class="holder date">
+        <div class="date">
           <label for="depart">Departing Date</label>
           <input type="date" id="depart">
         </div>
-
-        <!-- <div class="dropdown">
-          <label for="temp">Choose temperature</label>
-          <select name="temp" id="dropdownContent">
-            <option value="Celsius">Celsius</option>
-            <option value="Fahrenheit">Fahrenheit</option>
-            <option value="Kelvin">Kelvin</option>
-          </select>
+        <div class="dateReturn">
+          <label for="return">Returning Date</label>
+          <input type="date" id="return">
         </div>
-        <div class="holder feel">
-          <label for="feelings">How are you feeling today?</label>
-          <textarea class="myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
-          <div> -->
-            <button id="generate" type="submit"> Done </button>
-          </div>
-        </div>
-      </div>
-      <div class="holder entry">
-        <div class="title">My Trip</div>
-        <div id="entryHolder">
-          <div id="res_trip">My trip to  aaa</div>
-          <div id="res_depart_date">Departure date:  aaa</div>
-          <div id="flight_info"> flight info : MH 3:00 Flight 11 Quantas Airlines </div>
-          <div id="days_away">Xyz is x days away aaa </div>
-          <div id="high_temp">High temp aaa </div>
-          <div id="low_temp">Low temp aaa  </div>
-          <div id="day_review">Most cloudy  xyz Cloudy aaaa </div>
-
-          <div id="date">My trip to </div>
-          <div id="temp">Temperature: </div>
-          <div id="content">How are you feeling?: </div>
-          <div id="country">Country  is :</div>
-        </div>
+        <p></p>
+        <button id="generate" type="submit"> Search </button>
       </div>
     </div>
+
+
+    <main id="trip_info" class="trip_result" hidden="true">
+      <div class="title"  >My Trip</div>
+      <div id="tripDescription">
+        <div id="res_trip">My trip to ....</div>
+        <div id="res_depart_date">Departure date: </div>
+        <div id="res_return_date">Return date: </div>
+        <div id="length_stay">Length of stay: </div>
+        <div id="days_away">Days away</div>
+        <div id="high_temp">High temp : </div>
+        <div id="low_temp">Low temp : </div>
+        <div id="temp">Nomal temp : </div>
+        <div id="day_review">Summary of weather </div>
+        <div id="image_div">
+          <img id="image_country"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgKEor6LZagq05N1IPGDwMC8eu-Df3VMIFuA&usqp=CAU"
+            alt="">
+        </div>
+      </div>
+      </div>
+    </main>
+
+    <section id="country_info" class="countryDetail" hidden="true">
+      <div class="countryTitle">Information about the country</div>
+      <div id="countryInfo">
+        <div id="flag"><img id="flag_country"
+            src="https://thumbs.dreamstime.com/z/world-flag-flat-icon-collection-all-nations-country-flags-names-white-background-146391016.jpg"
+            alt=""></div>
+        <div id="official">Official name </div>
+        <div id="curr_code">Currency code </div>
+        <div id="curr">Currency </div>
+        <div id="capital">Capital of the country</div>
+        <div id="region">Region </div>
+        <div id="sub_region">Sub region </div>
+        <div id="lang">Language spoken</div>
+      </div>
+      </div>
+    </section>
     <footer class='footerJournal'>
       <p>Travel app created and designed by Kripa &copy; 2021</p>
+      <p>
+        Web APIs:
+        <a href="https://www.geonames.org/" target="_blank">Geonames</a>,
+        <a href="https://www.weatherbit.io/api" target="_blank">WeatherBit</a>,
+        <a href="https://pixabay.com/api/docs/" target="_blank">Pixabay</a>,
+        <a href="https://restcountries.eu/" target="_blank">REST Countries</a>
+      </p>
     </footer>
     <!-- <script src="./js/app.js" type="text/javascript"></script> -->
 
