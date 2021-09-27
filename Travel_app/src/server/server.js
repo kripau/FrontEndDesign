@@ -1,10 +1,12 @@
 // Setup empty JS object to act as endpoint for all routes
-projectData = {};
+const dotenv = require("dotenv");
+dotenv.config();
 
 // Require Express to run server and routes
 const express = require("express");
 const bodyParser = require("body-parser");
 const fetch = require("node-fetch");
+const util = require("./app_util.js");
 
 // Start up an instance of app
 const app = express();
@@ -27,6 +29,7 @@ const server = app.listen(port, () => {
   console.log(`running on localhost: ${port}`);
 });
 
+//url endpoint mapping
 app.post("/travelData", postTravelData);
 
 async function postTravelData(request, response) {
@@ -34,8 +37,6 @@ async function postTravelData(request, response) {
   const depart_date = request.body.depart_date;
   const diffDays = request.body.diffDays;
   let futureWeather = diffDays < 15 ? diffDays : 15;
-  // console.log("I am in server: depart_date", depart_date);
-  // console.log("I am in server: diffDays", diffDays);
   let data_geo = await geonamesApi(location);
   const lat = data_geo.geonames[0].lat;
   const lng = data_geo.geonames[0].lng;
@@ -52,7 +53,6 @@ async function postTravelData(request, response) {
     low_temp = data_weatherbit.data[0].low_temp;
     temp = data_weatherbit.data[0].temp;
     description = data_weatherbit.data[0].weather.description;
-    //  return baseUrl
   } else if (diffDays > 7) {
     high_temp = data_weatherbit.data[futureWeather].high_temp;
     low_temp = data_weatherbit.data[futureWeather].low_temp;
@@ -63,36 +63,15 @@ async function postTravelData(request, response) {
   const imageURL = data_pixabay.hits[0].webformatURL;
 
   let data_rest = await restcountriesAPI(countryName);
-  // console.log("rest data ", data_rest)
   const officialName = data_rest[0].name.official;
   const currencyCode = Object.keys(data_rest[0].currencies)[0];
-  const currencyName =data_rest[0].currencies[currencyCode].name;
-  // console.log("currency code ", currencyCode, " currency name ", currencyName)
+  const currencyName = data_rest[0].currencies[currencyCode].name;
   const capital = data_rest[0].capital[0];
   const region = data_rest[0].region;
   const subregion = data_rest[0].subregion;
   const languageCode = Object.keys(data_rest[0].languages)[0];
   const language = data_rest[0].languages[languageCode];
   const flag = data_rest[0].flags[1];
-  console.log("first block", data_rest[0])
-  console.log("office name", officialName)
-  // console.log(currency)
-  // console.log(capital)
-  // console.log(region)
-  // console.log(subregion)
-  // console.log(language)
-  // console.log(flag)
-
-
-
-  // console.log(imageURL)
-  // console.log (lat);
-  // console.log (lng);
-  // console.log (countryName);
-  // console.log (high_temp);
-  // console.log (low_temp);
-  // console.log (temp);
-  // console.log (description);
   let resposeData = {
     countryName: countryName,
     high_temp: high_temp,
@@ -100,84 +79,59 @@ async function postTravelData(request, response) {
     normal_temp: temp,
     description: description,
     imageURL: imageURL,
-    officialName:officialName,
+    officialName: officialName,
     currencyCode: currencyCode,
-    currency :currencyName,
-    capital : capital,
-    region : region,
-    subregion :subregion,
-    language :language,
-    flag :flag,
+    currency: currencyName,
+    capital: capital,
+    region: region,
+    subregion: subregion,
+    language: language,
+    flag: flag,
   };
-
-
-
   console.log("value to be return :", resposeData);
   response.send(resposeData);
 }
 
-// function geoNamesApi(request)
+// calling geonamesApi to get geolocation
 async function geonamesApi(location) {
-  const baseUrl = "http://api.geonames.org";
-  const username = "kripaupretis"; // process.env.API_geonames;
-  console.log("from env file", process.env.API_geonames); // TODO: need to fix
-
-  const geonamesURL = `${baseUrl}/search?q=${location}&maxRows=1&type=json&username=${username}`;
-  // console.log(geonamesURL);
+  const username = process.env.API_geonames;
+  const geonamesURL = util.createGeoNamesURL(location, username);
   data = await fetch(geonamesURL).then((res) => res.json());
-  // console.log(data);
   return data;
 }
 
+// calling WeatherbitApi to get weather data from weatherbit api
 async function WeatherbitApi(lat, lng, diffDays) {
   let baseUrl = "";
   if (diffDays <= 7 && diffDays > 0) {
     baseUrl = "https://api.weatherbit.io/v2.0/current";
-    // console.log("I am inside current")
-    //  return baseUrl
   } else if (diffDays > 7) {
     baseUrl = "https://api.weatherbit.io/v2.0/forecast/daily";
-    // console.log("I am inside future")
-
-    //  return baseUrl
   } else {
     console.log("Error");
   }
-  // console.log("baseURL" + baseUrl);
-  const API_key = "bdb09874a4a945af844d36fb808285a7";
-  // process.env.API_geonames;
-  console.log("from env file", process.env.API_weatherbit); // TODO: need to fix
-
+  const API_key = process.env.API_weatherbit;
+  console.log("from env file", process.env.API_weatherbit);
   const WeatherbitURL = `${baseUrl}?lat=${lat}&lon=${lng}&key=${API_key}`;
-  // console.log(WeatherbitURL);
   data = await fetch(WeatherbitURL).then((res) => res.json());
-  // console.log(data);
   return data;
 }
 
-// function pixabayApi(request)
+// calling pixabayApi to get  photo of city
 async function pixabayApi(location) {
   const baseUrl = "https://pixabay.com/api/";
-  const API_pixabay = "22446826-ca79efd142210a603f0eb7331"; // process.env.API_geonames;
-  console.log("from env file", process.env.API_geonames); // TODO: need to fix
+  const API_pixabay = process.env.API_pix;
+  console.log("from env file", process.env.API_pix);
 
   const pixabayURL = `${baseUrl}//?key=${API_pixabay}&category=place&q=${location}&image_type=photo}`;
-  // console.log(pixabayURL);
   data = await fetch(pixabayURL).then((res) => res.json());
-  console.log(data);
   return data;
 }
 
-
+// calling restcountriesAPI to get  data of the country
 async function restcountriesAPI(country) {
   const baseUrl = "https://restcountries.com";
-  // const API_pixabay = "22446826-ca79efd142210a603f0eb7331"; // process.env.API_geonames;
-  // console.log("from env file", process.env.API_geonames); // TODO: need to fix
-
   const restcountriesURL = `${baseUrl}/v3/name/${country}`;
-  // console.log(pixabayURL);
   data = await fetch(restcountriesURL).then((res) => res.json());
-  // console.log(data);
   return data;
 }
-
