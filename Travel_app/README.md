@@ -40,7 +40,9 @@ HTML, CSS, NodeJS, Javascript (Vanilla), Express, Webpack
 ## User Interface (UI)
 
 ![Final Output](./src/client/media/final1.PNG "Mobile version")
+
 ![Final Output](./src/client/media/final2.PNG "Mobile version")
+
 ![Final Output](./src/client/media/final3.PNG "Mobile version")
 
 
