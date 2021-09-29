@@ -85,11 +85,12 @@
       if ('serviceWorker' in navigator) {
         // Use the window load event to keep the page load performant
         window.addEventListener('load', () => {
-          navigator.serviceWorker
-            .register('src/client/service-worker.js')
+          navigator.serviceWorker.register('/service-worker.js')
             .then(reg => console.log('Service Worker : Registered'))
             .catch(err => console.log(`Service Worker: Error : ${err}`))
         });
+      } else {
+        console.log('Service workers are not supported.');
       }
     </script>
   </body>
